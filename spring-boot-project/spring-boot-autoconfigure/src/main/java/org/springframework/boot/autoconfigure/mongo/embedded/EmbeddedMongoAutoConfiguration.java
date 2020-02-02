@@ -139,6 +139,9 @@ public class EmbeddedMongoAutoConfiguration {
 			builder.net(new Net(getHost().getHostAddress(), Network.getFreeServerPort(getHost()),
 					Network.localhostIsIPv6()));
 		}
+		builder.setParameter("UserName", embeddedProperties.getUsername());
+		builder.setParameter("Password", embeddedProperties.getPassword());
+
 		return builder.build();
 	}
 

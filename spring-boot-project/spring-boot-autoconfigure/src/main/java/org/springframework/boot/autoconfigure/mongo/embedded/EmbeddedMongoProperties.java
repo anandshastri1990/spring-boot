@@ -48,6 +48,10 @@ public class EmbeddedMongoProperties {
 	 */
 	private Set<Feature> features = null;
 
+	private String username;
+
+	private String password;
+
 	public String getVersion() {
 		return this.version;
 	}
@@ -66,6 +70,22 @@ public class EmbeddedMongoProperties {
 
 	public Storage getStorage() {
 		return this.storage;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public static class Storage {

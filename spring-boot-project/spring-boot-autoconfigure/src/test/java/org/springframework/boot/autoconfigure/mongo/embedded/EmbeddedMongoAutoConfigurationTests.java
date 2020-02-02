@@ -176,6 +176,13 @@ class EmbeddedMongoAutoConfigurationTests {
 	}
 
 	@Test
+	void usernameAndPasswordIsAppliedToConfiguration() {
+		load("spring.mongodb.embedded.username=foo","spring.mongodb.embedded.password=bar");
+		assertThat(this.context.getBean(IMongodConfig.class).params().get("username")).isEqualTo("foo");
+		assertThat(this.context.getBean(IMongodConfig.class).params().get("password")).isEqualTo("bar");
+	}
+
+	@Test
 	void customizeDownloadConfiguration() {
 		load(DownloadConfigBuilderCustomizerConfiguration.class);
 		IRuntimeConfig runtimeConfig = this.context.getBean(IRuntimeConfig.class);
